@@ -120,7 +120,7 @@ interactiveFormValidationEnabled initial=false
 
 usePreHTML5ParserQuirks initial=false
 hyperlinkAuditingEnabled initial=false
-crossOriginCheckInGetMatchedCSSRulesDisabled initial=false
+crossOriginCheckInGetMatchedCSSRulesDisabled initial=true
 forceCompositingMode initial=false
 shouldInjectUserScriptsInInitialEmptyDocument initial=false
 fixedElementsLayoutRelativeToFrame initial=false
