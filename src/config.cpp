@@ -53,6 +53,7 @@ static const struct QCommandLineConfigEntry flags[] = {
     { QCommandLine::Option, '\0', "disk-cache", "Enables disk cache: 'true' or 'false' (default)", QCommandLine::Optional },
     { QCommandLine::Option, '\0', "ignore-ssl-errors", "Ignores SSL errors (expired/self-signed certificate errors): 'true' or 'false' (default)", QCommandLine::Optional },
     { QCommandLine::Option, '\0', "load-images", "Loads all inlined images: 'true' (default) or 'false'", QCommandLine::Optional },
+    { QCommandLine::Option, '\0', "resource-timeout", "Sets the default resource timeout (in ms)", QCommandLine::Optional },
     { QCommandLine::Option, '\0', "local-url-access", "Allows use of 'file:///' URLs: 'true' (default) or 'false'", QCommandLine::Optional },
     { QCommandLine::Option, '\0', "local-storage-path", "Specifies the location for local storage", QCommandLine::Optional },
     { QCommandLine::Option, '\0', "local-storage-quota", "Sets the maximum size of the local storage (in KB)", QCommandLine::Optional },

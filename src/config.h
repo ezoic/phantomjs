@@ -57,7 +57,7 @@ class Config: public QObject
     Q_PROPERTY(QString localStoragePath READ localStoragePath WRITE setLocalStoragePath)
     Q_PROPERTY(int localStorageDefaultQuota READ localStorageDefaultQuota WRITE setLocalStorageDefaultQuota)
     Q_PROPERTY(int offlineStorageDefaultQuota READ offlineStorageDefaultQuota WRITE setOfflineStorageDefaultQuota)
-	Q_PROPERTY(int resourceTimeout READ resourceTimeout WRITE setResourceTimeout)
+    Q_PROPERTY(int resourceTimeout READ resourceTimeout WRITE setResourceTimeout)
     Q_PROPERTY(bool printDebugMessages READ printDebugMessages WRITE setPrintDebugMessages)
     Q_PROPERTY(bool javascriptCanOpenWindows READ javascriptCanOpenWindows WRITE setJavascriptCanOpenWindows)
     Q_PROPERTY(bool javascriptCanCloseWindows READ javascriptCanCloseWindows WRITE setJavascriptCanCloseWindows)
