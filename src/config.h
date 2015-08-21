@@ -55,6 +55,7 @@ class Config: public QObject
     Q_PROPERTY(bool webSecurityEnabled READ webSecurityEnabled WRITE setWebSecurityEnabled)
     Q_PROPERTY(QString offlineStoragePath READ offlineStoragePath WRITE setOfflineStoragePath)
     Q_PROPERTY(int offlineStorageDefaultQuota READ offlineStorageDefaultQuota WRITE setOfflineStorageDefaultQuota)
+	Q_PROPERTY(int resourceTimeout READ resourceTimeout WRITE setResourceTimeout)
     Q_PROPERTY(bool printDebugMessages READ printDebugMessages WRITE setPrintDebugMessages)
     Q_PROPERTY(bool javascriptCanOpenWindows READ javascriptCanOpenWindows WRITE setJavascriptCanOpenWindows)
     Q_PROPERTY(bool javascriptCanCloseWindows READ javascriptCanCloseWindows WRITE setJavascriptCanCloseWindows)
@@ -87,6 +88,9 @@ public:
     int offlineStorageDefaultQuota() const;
     void setOfflineStorageDefaultQuota(int offlineStorageDefaultQuota);
 
+    int resourceTimeout() const;
+    void setResourceTimeout(int resourceTimeout);
+	
     bool diskCacheEnabled() const;
     void setDiskCacheEnabled(const bool value);
 
@@ -202,6 +206,7 @@ private:
     QString m_cookiesFile;
     QString m_offlineStoragePath;
     int m_offlineStorageDefaultQuota;
+	int m_resourceTimeout;
     bool m_diskCacheEnabled;
     int m_maxDiskCacheSize;
     bool m_ignoreSslErrors;
