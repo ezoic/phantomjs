@@ -225,6 +225,15 @@ void Config::setOfflineStorageDefaultQuota(int offlineStorageDefaultQuota)
     m_offlineStorageDefaultQuota = offlineStorageDefaultQuota * 1024;
 }
 
+int Config::resourceTimeout() const
+{
+    return m_resourceTimeout;
+}
+
+void Config::setResourceTimeout(int resourceTimeout)
+{
+    m_resourceTimeout = resourceTimeout;
+}
 
 QString Config::localStoragePath() const
 {
@@ -570,6 +579,7 @@ void Config::resetToDefaults()
     m_cookiesFile = QString();
     m_offlineStoragePath = QString();
     m_offlineStorageDefaultQuota = -1;
+    m_resourceTimeout = -1;
     m_localStoragePath = QString();
     m_localStorageDefaultQuota = -1;
     m_diskCacheEnabled = false;
@@ -737,6 +747,10 @@ void Config::handleOption(const QString& option, const QVariant& value)
 
     if (option == "offline-storage-quota") {
         setOfflineStorageDefaultQuota(value.toInt());
+    }
+	
+    if (option == "resource-timeout") {
+        setResourceTimeout(value.toInt());
     }
 
     if (option == "local-url-access") {
