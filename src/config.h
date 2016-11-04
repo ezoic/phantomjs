@@ -58,6 +58,7 @@ class Config: public QObject
     Q_PROPERTY(QString localStoragePath READ localStoragePath WRITE setLocalStoragePath)
     Q_PROPERTY(int localStorageDefaultQuota READ localStorageDefaultQuota WRITE setLocalStorageDefaultQuota)
     Q_PROPERTY(int offlineStorageDefaultQuota READ offlineStorageDefaultQuota WRITE setOfflineStorageDefaultQuota)
+    Q_PROPERTY(int resourceTimeout READ resourceTimeout WRITE setResourceTimeout)
     Q_PROPERTY(bool printDebugMessages READ printDebugMessages WRITE setPrintDebugMessages)
     Q_PROPERTY(bool javascriptCanOpenWindows READ javascriptCanOpenWindows WRITE setJavascriptCanOpenWindows)
     Q_PROPERTY(bool javascriptCanCloseWindows READ javascriptCanCloseWindows WRITE setJavascriptCanCloseWindows)
@@ -92,6 +93,9 @@ public:
 
     int offlineStorageDefaultQuota() const;
     void setOfflineStorageDefaultQuota(int offlineStorageDefaultQuota);
+
+    int resourceTimeout() const;
+    void setResourceTimeout(int resourceTimeout);
 
     QString localStoragePath() const;
     void setLocalStoragePath(const QString& value);
@@ -226,6 +230,7 @@ private:
     QString m_cookiesFile;
     QString m_offlineStoragePath;
     int m_offlineStorageDefaultQuota;
+    int m_resourceTimeout;
     QString m_localStoragePath;
     int m_localStorageDefaultQuota;
     bool m_diskCacheEnabled;
