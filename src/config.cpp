@@ -54,6 +54,7 @@ static const struct QCommandLineConfigEntry flags[] =
     { QCommandLine::Option, '\0', "disk-cache", "Enables disk cache: 'true' or 'false' (default)", QCommandLine::Optional },
     { QCommandLine::Option, '\0', "ignore-ssl-errors", "Ignores SSL errors (expired/self-signed certificate errors): 'true' or 'false' (default)", QCommandLine::Optional },
     { QCommandLine::Option, '\0', "load-images", "Loads all inlined images: 'true' (default) or 'false'", QCommandLine::Optional },
+    { QCommandLine::Option, '\0', "resource-timeout", "Sets the default resource timeout (in ms)", QCommandLine::Optional },
     { QCommandLine::Option, '\0', "local-storage-path", "Specifies the location for offline local storage", QCommandLine::Optional },
     { QCommandLine::Option, '\0', "local-storage-quota", "Sets the maximum size of the offline local storage (in KB)", QCommandLine::Optional },
     { QCommandLine::Option, '\0', "local-to-remote-url-access", "Allows local content to access remote URL: 'true' or 'false' (default)", QCommandLine::Optional },
@@ -215,6 +216,15 @@ int Config::offlineStorageDefaultQuota() const
 void Config::setOfflineStorageDefaultQuota(int offlineStorageDefaultQuota)
 {
     m_offlineStorageDefaultQuota = offlineStorageDefaultQuota * 1024;
+}
+
+int Config::resourceTimeout() const
+{
+    return m_resourceTimeout;
+}
+ void Config::setResourceTimeout(int resourceTimeout)
+{
+    m_resourceTimeout = resourceTimeout;
 }
 
 bool Config::diskCacheEnabled() const
@@ -516,6 +526,7 @@ void Config::resetToDefaults()
     m_cookiesFile = QString();
     m_offlineStoragePath = QString();
     m_offlineStorageDefaultQuota = -1;
+    m_resourceTimeout = -1;
     m_diskCacheEnabled = false;
     m_maxDiskCacheSize = -1;
     m_ignoreSslErrors = false;
@@ -669,6 +680,10 @@ void Config::handleOption(const QString &option, const QVariant &value)
     if (option == "remote-debugger-port") {
         setDebug(true);
         setRemoteDebugPort(value.toInt());
+    }
+
+    if (option == "resource-timeout") {
+        setResourceTimeout(value.toInt());
     }
 
     if (option == "proxy") {
